@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #ffd6d6; /* Baby pink background color */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        h1 {
+            color: #e60000;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-align: justify;
+            line-height: 1.5;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #e60000;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        .error-message {
+            color: red;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        /* Heart pattern animation */
+        @keyframes heart {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .heart-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23e60000"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            animation: heart 1s ease infinite;
+            z-index: -1;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Hey Pari 🫶🏻,</p>
+        <p>Let me start by saying, you're the luckiest person in the world because you get to share everything with me - my food, my clothes, and even the privilege of having me dig your nose and clean it up (hey, I don't think it's gross at all!).</p>
+        <p>Also, let's not forget your special talent - eating like a baby dino. Watching you munch away with those tiny arms is both hilarious and adorable.</p>
+        <p>But jokes aside, Pari, I love you a lot and you are the love of my life. I love spoiling you and treating you like the princess you are. After all, that's the bare minimum you deserve for putting up with me!</p>
+        <h1>So, will you be my Valentine?</h1>
+        <button id="yesBtn" onclick="response('Yes')">Yes</button>
+        <button id="noBtn" onclick="response('No')" onmousemove="moveButton(event)">No</button>
+        <p id="error-message" class="error-message"></p>
+    </div>
+    <div class="heart-pattern"></div>
+
+    <script>
+        function response(answer) {
+            if (answer === 'No') {
+                document.getElementById('error-message').innerText = 'Oh come on, don\'t be like that!';
+            } else {
+                alert("Your answer: " + answer);
+                document.getElementById('error-message').innerText = '';
+                document.querySelector('.heart-pattern').style.display = 'block';
+            }
+        }
+
+        function moveButton(event) {
+            var button = document.getElementById('noBtn');
+            var xPos = event.clientX;
+            var yPos = event.clientY;
+
+            // Move the button away from the cursor
+            button.style.left = xPos + 20 + 'px';
+            button.style.top = yPos + 20 + 'px';
+        }
+    </script>
+</body>
+</html>
